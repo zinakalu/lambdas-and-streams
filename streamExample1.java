@@ -24,3 +24,16 @@ System.out.println("result = " + result);
 //HOWEVER, the 'limit' stream has already been consumed by calling 'count()' in the previous step and
 //a stream can only be consumed once. If we remove the 'count()' operation, the code will work
 
+
+//The operations above are designed to be chained, so you can call one stage straight after the previous one,
+//without putting each stage in its own variable
+
+
+List<String> strings = List.of("I", "am", "a", "list", "of", "Strings");
+
+List<String> result = strings.stream() //get the streamm for the collection
+                             .limit(4) //set a limit to return a maximum of 4 results from the stream
+                             .collect(Collectors.toList()); //returns the results of the operation as a List
+                             //formatted to align each operation directly underneath the one above, to clearly show each stage
+System.out.println("result = " + result);
+
